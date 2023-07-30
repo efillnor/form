@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <linkhref=https: //fonts.googleapis.com/icon?family=Material+Icons rel="stylesheet">
+        </linkhref>
+        <title>Assignment 2 - Website Building</title>
+        <style>
+            body {
+                box-sizing: border-box;
+                font-family: sans-serif;
+            }
+
+            #login-container {
+                width: 460px;
+                margin: 0 auto;
+            }
+
+            form label,
+            form input {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            form input {
+                padding: 8px;
+            }
+
+            form label {
+                font-weight: bold;
+            }
+
+            form div {
+                margin: 16px 0px;
+            }
+
+            .red {
+                border: 1px solid red;
+                background-image: url(img/red.png);
+                box-sizing: content-box;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: right center;
+            }
+
+            .green {
+                border: 1px solid green;
+                background-image: url(img/green.png);
+                box-sizing: content-box;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: right center;
+            }
+
+            .show {
+
+                display: block;
+            }
+
+            .hide {
+
+                display: none;
+            }
+        </style>
+</head>
+
+<body>
+
+    <div id="login-container">
+
+        <form>
+            <div>
+                <label for="username">Username:</label>
+                <input id="username" name="user" type="text" placeholder="user">
+            </div>
+
+            <div>
+                <label for="password">Password:</label>
+                <input id="password" name="password" type="password" placeholder="password">
+            </div>
+
+            <input id="submit" class="login" name="submit" type="button" value="Login">
+            <p id="user" class="hide">*please enter username</p>
+            <p id="valid-user" class="hide">*please enter a valid username</p>
+            <p id="pass" class="hide">*please enter password</p>
+            <p id="valid-pass" class="hide">*please enter a valid password</p>
+        </form>
+
+    </div>
+
+    <script src="https://kit.fontawesome.com/4acf742663.js" crossorigin="anonymous"></script>
+
+    <script>
+        var user = document.getElementById('username');
+        var password = document.getElementById('password');
+        var submit = document.getElementById('submit');;
+
+        var username = document.getElementById('user');
+        var validUsername = document.getElementById('valid-user');
+        var pass = document.getElementById('pass');
+        var validPass = document.getElementById('valid-pass');
+
+
+        submit.addEventListener("click", changeColor);
+
+        function changeColor() {
+            if (user.value === "new_user") {
+                user.classList.add('green');
+                username.classList.add('hide');
+                username.classList.remove('show');
+                validUsername.classList.add('hide');
+                validUsername.classList.remove('show');
+            } else if (user.value == '') {
+                user.classList.add('red');
+                username.classList.add('show');
+                username.classList.remove('hide');
+                validUsername.classList.add('hide');
+                validUsername.classList.remove('show');
+            } else if (user.value != "new_user" && user.value != '') {
+                user.classList.add('red');
+                validUsername.classList.add('show');
+                validUsername.classList.remove('hide');
+                username.classList.add('hide');
+                username.classList.remove('show');
+            }
+
+            if (password.value === "123456789") {
+                password.classList.add('green');
+                pass.classList.add('hide');
+                pass.classList.remove('show');
+                validPass.classList.add('hide');
+                validPass.classList.remove('show');
+            }
+            else if (password.value == '') {
+                password.classList.add('red');
+                pass.classList.add('show');
+                pass.classList.remove('hide');
+                validPass.classList.add('hide');
+                validPass.classList.remove('show');
+            } else if (password.value != "123456789" && password.value != '') {
+                password.classList.add('red');
+                validPass.classList.add('show');
+                validPass.classList.remove('hide');
+                pass.classList.add('hide');
+                pass.classList.remove('show');
+            }
+
+        };
+
+
+
+
+
+    </script>
+</body>
+
+</html>
